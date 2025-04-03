@@ -27,9 +27,8 @@ RUN if [ "${TARGETPLATFORM}" = "${BUILDPLATFORM}" ] ; then \
 
 WORKDIR /app/
 
-COPY /src/shipping/ /app/
-COPY /pb/ /app/proto/
-
+COPY . /app/
+COPY . /app/proto/
 # Compile or crosscompile
 RUN if [ "${TARGETPLATFORM}" = "${BUILDPLATFORM}" ] ; then \
         cargo build -r --features="dockerproto"; \

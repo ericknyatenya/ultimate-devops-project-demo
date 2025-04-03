@@ -82,7 +82,7 @@ impl ShippingService for ShippingServer {
         span.add_event("Processing get quote request".to_string(), vec![]);
         span.set_attribute(KeyValue::new(
             "app.shipping.zip_code",
-            request_message.address.unwrap().zip_code,
+            request_message.address.unwrap().zip_code as i64,
         ));
 
         let cx = Context::current_with_span(span);
